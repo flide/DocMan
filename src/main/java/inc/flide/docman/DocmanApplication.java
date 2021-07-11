@@ -28,10 +28,7 @@ public class DocmanApplication {
 	@PostMapping("/client")
 	public ResponseEntity<Client> createTutorial(@RequestBody Client client) {
 		try {
-			System.out.println("inside /client endpoint");
-			//Client clientDao = clientRepository.save(new Client(client));
-			Client clientDao = clientRepository.save(new Client(client.getFirstName(), client.getLastName(), client.getPanNumber(), client.getEmailAddress(), client.getDateOfBirth()));
-			System.out.println("clientDao : " + clientDao.getId());
+			Client clientDao = clientRepository.save(new Client(client));
 			return new ResponseEntity<>(clientDao, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
