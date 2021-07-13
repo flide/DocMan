@@ -42,14 +42,10 @@ public class DocmanApplication {
 	@GetMapping("/client")
 	public ResponseEntity<List<Client>> getAllClients() {
 		try {
-			System.out.println("line1");
 			List<Client> clients = new ArrayList<Client>();
-			System.out.println("line2");
 			clientRepository.findAll().forEach(clients::add);
-			System.out.println("line3");
 			return new ResponseEntity<>(clients, HttpStatus.OK);
 		} catch (Exception e) {
-			System.out.println("error : " + e.getMessage());
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
