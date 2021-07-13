@@ -28,6 +28,8 @@ public class Client {
     @Column (name = "date_of_birth")    
     private Date dateOfBirth;
 
+    public Client() { }
+
     public Client(Client client) {
         this.firstName = client.firstName;
         this.lastName = client.lastName;
